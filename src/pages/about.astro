@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="About — Nosaka"
+  description="Nosaka is a voice-first executive assistant, built around one standard: would a good human assistant actually respond this way?"
+>
+  <Header current="about" />
+  <main>
+    <div class="page-hero wrap">
+      <h1>Built to actually listen.</h1>
+      <p class="lede">Nosaka is a voice-first executive assistant — not a chat app with a microphone attached to it.</p>
+    </div>
+
+    <article class="article wrap">
+      <p>
+        A good assistant doesn't make you operate them. You don't fill out a form to ask a real assistant to move a meeting — you just say it, and it's handled. That's the standard Nosaka is held to: would an attentive, detail-oriented human assistant actually respond this way? Not a canned confirmation, not a wall of text read back at you — genuinely paying attention, and answering precisely and concisely, without extra ceremony.
+      </p>
+
+      <h2>Voice first, not voice added</h2>
+      <p>
+        Most "AI assistants" are text interfaces with speech-to-text bolted on. Nosaka is designed the other way around — every interaction is built for a spoken conversation from the start, which changes what gets said, how much, and when to just act instead of asking. <a href="/blog/voice-first/">More on what that means in practice</a>.
+      </p>
+
+      <h2>Memory that actually reduces effort</h2>
+      <p>
+        Preferences shouldn't need repeating. Nosaka is built to remember how you like things done — your schedule's rhythm, how you travel, the small recurring details — and get quietly better at anticipating them, rather than treating every request like the first one.
+      </p>
+
+      <h2>Where things stand</h2>
+      <p>
+        Nosaka is currently in private testing — a small, deliberately unfinished product being refined in real, everyday use rather than polished for a big launch. <a href="mailto:hello@nosaka.ai?subject=Early%20access">Request access</a> if you'd like to try it early.
+      </p>
+    </article>
+  </main>
+  <Footer />
+</Layout>

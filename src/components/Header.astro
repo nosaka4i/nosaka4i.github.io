@@ -1,0 +1,23 @@
+---
+import RingMark from "./RingMark.astro";
+
+interface Props {
+  current?: "home" | "about" | "blog";
+}
+
+const { current = "home" } = Astro.props;
+---
+
+<header>
+  <div class="wrap header-row">
+    <a class="mark" href="/">
+      <RingMark />
+      <span class="wordmark">Nosaka.ai</span>
+    </a>
+    <nav>
+      <a href="/" aria-current={current === "home" ? "page" : undefined}>Home</a>
+      <a href="/about" aria-current={current === "about" ? "page" : undefined}>About</a>
+      <a href="/blog" aria-current={current === "blog" ? "page" : undefined}>Blog</a>
+    </nav>
+  </div>
+</header>

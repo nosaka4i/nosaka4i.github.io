@@ -1,0 +1,35 @@
+---
+// The Nosaka mark — reuses the exact organic-ring-path algorithm from the
+// main app repo's icon generator (see src/lib/ring.ts) so the mark used
+// across this site is faithful to the real app icon, not an approximation.
+import { getRingPaths, RING_COLOR, RING_STROKE_WIDTH } from "../lib/ring";
+
+interface Props {
+  // "frame" wraps the mark in the corner-bracket scan reticle + status
+  // readout, used for the hero. Plain marks (header/footer) skip it.
+  frame?: boolean;
+  class?: string;
+}
+
+const { frame = false, class: className } = Astro.props;
+const paths = getRingPaths();
+---
+
+{frame ? (
+  <div class="hero-mark-frame">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      {paths.map((p) => (
+        <path class={p.opacity > 0.7 ? "ring-b" : "ring-a"} style={`--base-opacity:${p.opacity}`} d={p.d} stroke={RING_COLOR} stroke-width={RING_STROKE_WIDTH} opacity={p.opacity} />
+      ))}
+    </svg>
+    <span class="tick-tr"></span>
+    <span class="tick-br"></span>
+    <span class="readout">NSK&#8209;01 &middot; ACTIVE</span>
+  </div>
+) : (
+  <svg class={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    {paths.map((p) => (
+      <path d={p.d} stroke={RING_COLOR} stroke-width={RING_STROKE_WIDTH} opacity={p.opacity} />
+    ))}
+  </svg>
+)}

@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import RingMark from "../components/RingMark.astro";
+
+const capabilities = [
+  { label: "Schedule", text: "Meetings, reminders, and follow-ups — handled the moment you say them, not typed into a form." },
+  { label: "Travel", text: "Full itineraries: flights, hotels, and ground transport, planned around how you actually like to travel." },
+  { label: "Memory", text: "Nosaka remembers your preferences, so you stop having to repeat yourself." },
+];
+---
+
+<Layout
+  title="Nosaka — An assistant you talk to"
+  description="Nosaka is a voice-first executive assistant. Say it once, and it's handled."
+>
+  <Header current="home" />
+
+  <main>
+    <div class="hero-band">
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span>Voice-first &middot; Private beta</p>
+          <h1>Executive assistant agent, exponentially increase your productivity.</h1>
+          <p class="sub">Nosaka handles your calendar, reminders, notes, and travel by voice — with the judgment of someone who's actually paying attention.</p>
+          <div class="cta-row">
+            <a class="btn" href="mailto:hello@nosaka.ai?subject=Early%20access">Request access</a>
+            <span class="cta-note">Currently in private testing.</span>
+          </div>
+        </div>
+        <div class="hero-mark">
+          <RingMark frame />
+        </div>
+      </section>
+    </div>
+
+    <section class="capabilities wrap" id="about">
+      {capabilities.map((c) => (
+        <div class="cap-row">
+          <div class="cap-label">{c.label}</div>
+          <p class="cap-text">{c.text}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="access">
+      <div class="wrap">
+        <h2>Nosaka is in private testing.</h2>
+        <p>Request access and we'll reach out when there's room.</p>
+        <div class="cta-row">
+          <a class="btn" href="mailto:hello@nosaka.ai?subject=Early%20access">Request access</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
