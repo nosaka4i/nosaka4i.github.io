@@ -10,9 +10,9 @@ Nosaka is built the other way around: voice is the interface, not an add-on to o
 
 ## A concrete example
 
-Ask Nosaka to show your reminders. If you only have a couple, they just read them — done, no ceremony. But if you've got a long list, reading the whole thing out loud is genuinely bad voice UX. Nobody wants to sit through fifteen items read one by one, and there's no way to skim a spoken list the way you'd skim a screen.
+Ask Nosaka to show your reminders. If you only have a couple, she just reads them — done, no ceremony. But if you've got a long list, reading the whole thing out loud is genuinely bad voice UX. Nobody wants to sit through fifteen items read one by one, and there's no way to skim a spoken list the way you'd skim a screen.
 
-So instead, past a few items, Nosaka gives you the count and asks: *"You have seven reminders. Want me to read them?"* Say yes, and they read the list — no restating the count, no repeating themselves, straight into it. Say no, and they just say *"Okay"* and move on, the way an actual person would, not a chime or a blank pause.
+So instead, past a few items, Nosaka gives you the count and asks: *"You have seven reminders. Want me to read them?"* Say yes, and she reads the list — no restating the count, no repeating herself, straight into it. Say no, and she just says *"Okay"* and moves on, the way an actual person would, not a chime or a blank pause.
 
 That's the whole idea. A phone menu doesn't read you every option before letting you choose — it gives you a bounded choice and waits. Nosaka works the same way: say only what's useful, ask only when it's genuinely ambiguous, and never make you sit through something a person could just glance past.
 
