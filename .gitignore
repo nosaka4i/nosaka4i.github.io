@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # local mockups (~/mockups symlinks here)
 /.mocks/
+
+# claude scratch files
+/.claudetmp/

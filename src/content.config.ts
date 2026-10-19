@@ -7,6 +7,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    // Drafts are built only by `pnpm dev`, never into the deployed site.
+    draft: z.boolean().default(false),
   }),
 });
 
