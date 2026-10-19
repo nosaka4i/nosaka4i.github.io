@@ -11,11 +11,13 @@ My sessions with Claude Code generate a lot of permission approvals to run thing
 
 What files were read/changed/deleted, which executables were run, check which network connections were made, get a timeline view of what operations took place, everything streamlined and visible in a simple dashboard.  Risky operations are flagged in Sentient where the user can drill down deeper into what happened.
 
-<!-- screenshot: sen serve dashboard -->
+![Sentient dashboard (mockup)](/blog/sentient/dashboard.png)
 
 ## Don't let the model vouch for the model
 
 The agent's own logs aren't enough evidence, they're written by the same process being checked, so they can be incomplete or wrong, by accident or otherwise, and a shell script can change files the log never names.  So Sentient records what happened at the kernel level, independently of the agent, using [Tetragon](https://tetragon.io/), an eBPF-based tool from the Cilium project, which the agent, running as a regular user, can't edit or switch off, and it uses the agent's logs only for the story, which prompt, which stated reason.  The gaps between what the logs claim and what the kernel saw turn out to be the most useful alerts.  Summaries, diffs and flags are computed with deterministic rules, not by another model, a model should not vouch for a model.  And since it's a tool about trust, it has to be trustworthy itself, open source, local-only, read-only toward your projects, and no telemetry.
+
+![Sentient alert detail (mockup)](/blog/sentient/alert.png)
 
 ## How it's put together
 
