@@ -554,6 +554,16 @@ nav a[aria-current="page"] {
   font-size: 0.9em;
 }
 
+/* Screenshots are captured at 2x, so fit them to the text column. */
+.article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 8px 0 28px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+}
+
 /* Large monitors: scale the type up so the column widens with it
    without lines getting too long to read. */
 @media (min-width: 1600px) {
