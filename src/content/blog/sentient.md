@@ -20,9 +20,29 @@ The agent's own logs aren't enough evidence, they're written by the same process
 
 ## How it's put together
 
-Sentient has two primary components: `sentientd` is a small monitor that runs as root under systemd, so the agent can't stop it or tamper with its records.  `sen` is the CLI for Sentient and can also act as a web server for the web UI.  `sen status` gives you the summary in the terminal, and `sen serve` runs the web dashboard on localhost.  You can reach the dashboard from your phone over an SSH tunnel or Tailscale.  One honest caveat: if the account your agent runs as can `sudo` without a password, the boundary between the agent and the monitor is gone, Sentient's health page warns you about it.  It is recommended that you run your agents in a separate account/sandbox with reduced privileges.
+Sentient has two primary components: `sentientd` is a small monitor that runs as root under systemd, so the agent can't stop it or tamper with its records.  `sen` is the CLI for Sentient and can also act as a web server for the web UI.  `sen status` gives you the summary in the terminal, and `sen serve` runs the web dashboard on localhost.  You can reach the dashboard from your phone over an SSH tunnel or Tailscale.
+Here's what `sen status` looks like with sample data:
 
-<!-- screenshot: sen status in a terminal -->
+```
+$ sen status
+Monitored from Oct 6 09:12 (1d 6h ago)
+
+NEEDS ATTENTION (4)
+#    DATE          AGENT    REPO     SEVERITY   RESOURCE   ACTION    PATH
+43   Oct 7 14:52   claude   nosaka   high       file       update    ~/.zshrc
+41   Oct 7 14:33   claude   nosaka   medium     file       update    ios/Config.plist
+44   Oct 7 15:02   claude   nosaka   medium     file       update    reminders.ts, scheduler.ts +1 more
+42   Oct 7 14:40   claude   nosaka   low        file       delete    old_snooze_stub.ts
+
+LAST 24H
+RESOURCE    ACTION    COUNT   SUMMARY
+prompt      request   4       2 repos · agent worked 1h 58m
+file        read      214     38 outside repo
+file        update    9       +248 −61
+command     execute   41      2 failed
+network     connect   5       github.com, registry.npmjs.org, localhost:3000
+git         commit    3
+```
 
 ## Where it stands
 

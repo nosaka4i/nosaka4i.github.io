@@ -11,6 +11,7 @@ const projects = [
     status: "Early",
     meta: "Go · Linux",
     desc: "Monitors coding agent activity and makes it transparent, so you can see which files were changed, which commands ran and which connections were made.",
+    site: "/sentient/",
     repo: "https://github.com/nosaka4i/sentient",
     post: "/blog/sentient/",
   },
@@ -54,6 +55,7 @@ const projects = [
             <h2 class="project-name">{p.name}</h2>
             <p class="project-desc">{p.desc}</p>
             <div class="project-links">
+              {p.site && <a href={p.site}>Website &rarr;</a>}
               <a href={p.repo}>GitHub &rarr;</a>
               {p.post && <a href={p.post}>Read the post &rarr;</a>}
             </div>
