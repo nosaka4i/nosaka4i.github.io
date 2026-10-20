@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// /sentient, /git-backlog and /rly are reserved: each repo's own GitHub
+// Pages site is served there under the nosaka.ai domain.
+const projects = [
+  {
+    name: "Sentient",
+    status: "Early",
+    meta: "Go · Linux",
+    desc: "Monitors coding agent activity and makes it transparent, so you can see which files were changed, which commands ran and which connections were made.",
+    repo: "https://github.com/nosaka4i/sentient",
+    post: "/blog/sentient/",
+  },
+  {
+    name: "git-backlog",
+    status: "Stable",
+    meta: "Go",
+    desc: "A lightweight, opinionated backlog CLI that lives in your git repository, built for small teams and coding agents.",
+    repo: "https://github.com/nosaka4i/git-backlog",
+    post: "/blog/git-backlog/",
+  },
+  {
+    name: "rly",
+    status: "Stable",
+    meta: "Go",
+    desc: "Bundles log files from one machine and relays them over ssh to another, usually the box where a coding agent is working.",
+    repo: "https://github.com/nosaka4i/rly",
+  },
+];
+---
+
+<Layout
+  title="Open Source — Nosaka"
+  description="Open source tools built while working on Nosaka."
+>
+  <Header current="open-source" />
+  <main>
+    <div class="page-hero wrap">
+      <h1>Open Source</h1>
+      <p class="lede">Tools I built while working on Nosaka. They're MIT licensed and free to use.</p>
+    </div>
+
+    <div class="project-list wrap">
+      {projects.map((p) => (
+        <div class="project-row">
+          <div class="project-meta">
+            <span class="status">{p.status}</span>
+            <span>{p.meta}</span>
+          </div>
+          <div>
+            <h2 class="project-name">{p.name}</h2>
+            <p class="project-desc">{p.desc}</p>
+            <div class="project-links">
+              <a href={p.repo}>GitHub &rarr;</a>
+              {p.post && <a href={p.post}>Read the post &rarr;</a>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
